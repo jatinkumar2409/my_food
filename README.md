@@ -10,5 +10,6 @@ Apis :- Dummy Json
 Payemnent Gateway(Test) :- Rzorpay
 
 Here , you can search for a variety of items , add them to cart and also place your order 
+Working vercel link :- https://my-food-inky.vercel.app/
 
 Contributions are welcome here
