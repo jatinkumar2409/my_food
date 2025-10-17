@@ -2,10 +2,10 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { useEffect ,useState } from 'react'
+import { useEffect ,useState ,Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { TagsPage } from '@/components/Misc/Misc'
-const page = () => {
+const PageContent = () => {
     const [foodData, setfoodData] = useState([])
     const params = useSearchParams();
     const food = params.get("food");
@@ -33,5 +33,12 @@ const page = () => {
     </div>
   )
 }
+const page =() =>{
+  return <>
+  <Suspense fallback={<div>Loading...</div>}>
+    <PageContent/>
+    </Suspense>
+    </>
 
+}
 export default page

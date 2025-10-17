@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect , useState } from 'react'
+import React, { useEffect , useState , Suspense } from 'react'
 import Navbar from '@/components/Navbar'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 import { ToastContainer , toast } from 'react-toastify'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase/fbinit'
-const page = () => {
+const PageContent = () => {
     
     const params =useSearchParams();
     const email = params.get('email');
@@ -123,4 +123,11 @@ const raw = JSON.stringify(user);
   )
 }
 
+const page = () => {
+  return <>
+ <Suspense fallback={<div className='m-4'>Loading...</div>}>
+ <PageContent/>
+ </Suspense>
+ </>
+}
 export default page

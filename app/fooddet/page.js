@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useEffect , useState } from 'react'
+import { useEffect , useState , Suspense } from 'react'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import starrate from '@/assets/starrate.svg'
@@ -9,7 +9,7 @@ import Footer from '@/components/Footer'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase/fbinit'
   import { ToastContainer, toast } from 'react-toastify';
-const page = () => {
+const PageContent = () => {
   const [email, setemail] = useState(null)
     useEffect(() => {
       onAuthStateChanged(auth , (user) => {
@@ -132,5 +132,11 @@ const page = () => {
     </div>
   )
 }
-
+ const page = () => {
+  return <>
+  <Suspense fallback={<div className='m-4'>Loading...</div>}>
+    <PageContent/>
+  </Suspense>
+  </>
+ }
 export default page
