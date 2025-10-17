@@ -9,7 +9,9 @@ import Footer from '@/components/Footer'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase/fbinit'
   import { ToastContainer, toast } from 'react-toastify';
+  import { useRouter } from 'next/navigation'
 const PageContent = () => {
+  const router = useRouter()
   const [email, setemail] = useState(null)
     useEffect(() => {
       onAuthStateChanged(auth , (user) => {
@@ -116,7 +118,15 @@ const PageContent = () => {
         <div>{quant}</div>
         <button className='text-3xl' onClick={() =>{setquant(quant+1)}} > + </button>
     </div>
-    <button className='bg-black text-white py-1 px-4 rounded ' onClick={() => {addToCart({productId : dish.id , name : dish.name , cuisine : dish.cuisine , image : dish.image , quantity : quant , unitPrice : dish.caloriesPerServing , email : email })}}>
+    <button className='bg-black text-white py-1 px-4 rounded ' onClick={() => {
+      if(auth.currentUser){
+      addToCart({productId : dish.id , name : dish.name , cuisine : dish.cuisine , image : dish.image , quantity : quant , unitPrice : dish.caloriesPerServing , email : email })
+      }
+      else{
+        toast("Signin first")
+        router.push('/signin')
+      }
+    }}>
         Add
     </button>
     </div>
