@@ -25,7 +25,7 @@ const page = () => {
   return (
     <div>
       <Navbar/>
-       <div className='flex  mx-[4vw] justify-center flex-wrap'>
+       <div className='flex  mx-[4vw] justify-center max-md:flex-wrap'>
         <div>
           <Image src={foodlogin} alt='foodLogin' className='rounded-2xl h-[80vh]'/>
         </div>

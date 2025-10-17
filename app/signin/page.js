@@ -64,7 +64,7 @@ const requestOptions = {
   return (
     <div>
       <Navbar/>
-      <div className='flex justify-center mx-[4vw] flex-wrap'>
+      <div className='flex justify-center mx-[4vw] max-md:flex-wrap'>
         <div>
           <Image src={foodlogin} alt='foodLogin' className='rounded-2xl h-[80vh]'/>
         </div>
