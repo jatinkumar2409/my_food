@@ -6,14 +6,14 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase/fbinit'
 import Footer from '@/components/Footer'
 const page = () => {
-  const url = "http://localhost:3000"
+ 
   const [orders, setOrders] = useState([])
  useEffect(() => {
       onAuthStateChanged(auth , (authUser) => {
        if(authUser && orders.length === 0){
         ( async () => {
           try{
-              var response = await fetch(`${url}/api/orders?email=${authUser.email}`)
+              var response = await fetch(`/api/orders?email=${authUser.email}`)
               var data = await response.json();
               if(data){
                  console.log(data);

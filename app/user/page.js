@@ -21,7 +21,7 @@ const page = () => {
   redirect: "follow"
 };
  try{
- const response = await fetch(`http://localhost:3000/api/user?email=${email}`, requestOptions)
+ const response = await fetch(`/api/user?email=${email}`, requestOptions)
   var data = await response.json();
   setuser(data);
   
@@ -44,7 +44,7 @@ const raw = JSON.stringify(user);
    };
    if(user.name.trim() !== "" && user.profile.trim() !== "" && user.phone.trim() !== "" && user.address.trim() !== "" && user.email.trim() !== "" && user.password.trim() !== ""){
     try{
-    var response = await fetch("http://localhost:3000/api/update", requestOptions)
+    var response = await fetch("/api/update", requestOptions)
      var data = await response.json();
       console.log(data);
       setuser(data);

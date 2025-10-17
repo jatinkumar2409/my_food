@@ -34,7 +34,7 @@ const page = () => {
         redirect: "follow"
       };
        try{
-       var response = await fetch("http://localhost:3000/api/cart", requestOptions)
+       var response = await fetch("/api/cart", requestOptions)
         var data =  await response.json()
          console.log(data);
          if(response.status === 200){

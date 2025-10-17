@@ -11,7 +11,6 @@ import { toast , ToastContainer } from 'react-toastify'
 import logo from "@/assets/logo.svg"
 const page = () => {
   const router = useRouter();
-  const url = "http://localhost:3000"
     const [carts, setcarts] = useState([]);
     const [sum , setsum] = useState(0);
     const [user, setuser] = useState(null)
@@ -20,7 +19,7 @@ const page = () => {
  (async () => {
      onAuthStateChanged( auth , async(authUser) => {
         if(authUser && carts.length === 0){
-          var response = await fetch(`${url}/api/cart?email=${authUser.email}`);
+          var response = await fetch(`/api/cart?email=${authUser.email}`);
      const data = await response.json();
      setcarts(data);
      console.log(data);
@@ -40,7 +39,7 @@ const page = () => {
    ( async () => {
      onAuthStateChanged( auth , async(_user) => {
        if(_user && !user){
-    var response = await fetch(`${url}/api/user?email=${_user.email}`)
+    var response = await fetch(`/api/user?email=${_user.email}`)
      var data = await response.json();
      setuser(data);
      console.log(data)
@@ -105,7 +104,7 @@ const page = () => {
    }
    const addOrder = async (raw) => {
     var body = JSON.stringify(raw);
-     var response = await fetch("http://localhost:3000/api/orders" , {method : "POST" , headers : {"Content-Type" : "application/json"} , 
+     var response = await fetch("/api/orders" , {method : "POST" , headers : {"Content-Type" : "application/json"} , 
     body : body})
     var data = await response.json();
     if(response.status == 200){
@@ -118,7 +117,7 @@ const page = () => {
 
 
   async function removeCart(productId){
-     var response = await fetch(`http://localhost:3000/api/cart?id=${productId}&email=${user.email}` , {method : "DELETE"})
+     var response = await fetch(`/api/cart?id=${productId}&email=${user.email}` , {method : "DELETE"})
      var data = await response.json();
      console.log(data);
      if(data.status = 200){

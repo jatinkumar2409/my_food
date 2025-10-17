@@ -40,7 +40,7 @@ const requestOptions = {
   redirect: "follow"
 };
  try{
- var response = await fetch("http://localhost:3000/api/signin", requestOptions)
+ var response = await fetch("/api/signin", requestOptions)
   var data =  await response.text()
    console.log(data);
     toast("Signed in");

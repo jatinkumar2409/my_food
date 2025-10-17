@@ -33,7 +33,7 @@ export const SecondHalfHome = () => {
        <div className="flex justify-around py-6">
         { 
           imageArray.map((src,i) =>{
-            return <div key={i} className="overflow-x-hidden flex flex-col items-center gap-2" onClick={() => router.push(`/tags/${txtArray[i]}`)}>
+            return <div key={i} className="overflow-x-hidden flex flex-col items-center gap-2 cursor-pointer" onClick={() => router.push(`/tags/${txtArray[i]}`)}>
               <div  className="h-[120px] w-[120px] max-sm:w-[30px] max-sm:h-[30px] max-lg:h-[60px] max-lg:w-[60px] overflow-hidden relative">
             <Image src={src} alt="foodimage" fill className="rounded-full object-center"/>
             </div>
@@ -48,7 +48,7 @@ export const SecondHalfHome = () => {
         Personailzed recommendations
       </div>
        <ul className="flex justify-around mx-[5vw] max-sm:text-[6px]">
-        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl" onClick={() => {router.push(`/fooddet?id=${3}`)}}>
+        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl cursor-pointer" onClick={() => {router.push(`/fooddet?id=${3}`)}}>
           <div>
             <Image src={'https://cdn.dummyjson.com/recipe-images/3.webp'} width={160} height={160} alt="foodImage"/>
           </div>
@@ -64,7 +64,7 @@ export const SecondHalfHome = () => {
              
           </div>
         </li>
-        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl" onClick={() => {router.push(`/fooddet?id=${1}`)}}>
+        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl cursor-pointer" onClick={() => {router.push(`/fooddet?id=${1}`)}}>
           <div>
             <Image src={'https://cdn.dummyjson.com/recipe-images/1.webp'} width={160} height={160} alt="foodImage"/>
           </div>
@@ -81,7 +81,7 @@ export const SecondHalfHome = () => {
              
           </div>
         </li>
-        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl" onClick={() => {router.push(`/fooddet?id=${16}`)}}>
+        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl cursor-pointer" onClick={() => {router.push(`/fooddet?id=${16}`)}}>
           <div>
             <Image src={'https://cdn.dummyjson.com/recipe-images/16.webp'} width={160} height={160} alt="foodImage"/>
           </div>
@@ -98,7 +98,7 @@ export const SecondHalfHome = () => {
             
           </div>
         </li>
-        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl" onClick={() => {router.push(`/fooddet?id=${11}`)}}>
+        <li className="flex flex-col bg-amber-100 justify-center items-center p-3 rounded-xl cursor-pointer" onClick={() => {router.push(`/fooddet?id=${11}`)}}>
           <div>
             <Image src={'https://cdn.dummyjson.com/recipe-images/11.webp'} width={160} height={160} alt="foodImage"/>
           </div>
@@ -127,7 +127,7 @@ export const TagsPage = ({foodData}) => {
         foodData.length !== 0 ?
             foodData.map((a ,i) => {
               console.log(a)
-             return<div key={i} className='flex bg-gray-100 p-4 gap-4 rounded-2xl pb-8' onClick={()=>{router.push(`/fooddet?id=${a.id}`)}}>
+             return<div key={i} className='flex bg-gray-100 p-4 gap-4 rounded-2xl pb-8 cursor-pointer'  onClick={()=>{router.push(`/fooddet?id=${a.id}`)}}>
                <div>
                <Image src={a.image} width={120} height={120} alt='foodImage' className='rounded-xl'/>
                </div>

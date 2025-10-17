@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth"
 const firebaseConfig = {
-  apiKey: process.env.FB_KEY,
+  apiKey: process.env.NEXT_PUBLIC_FB_KEY,
   authDomain: "myfood-fcde0.firebaseapp.com",
   projectId: "myfood-fcde0",
   storageBucket: "myfood-fcde0.firebasestorage.app",
